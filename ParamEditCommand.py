@@ -47,6 +47,7 @@ class ParamEditCommand(Fusion360CommandBase):
         design = app_objects['design']
 
         for param in design.userParameters:
-            inputs.addStringValueInput(param.name,
-                                       param.name,
-                                       param.expression)
+            if param.isFavorite == True:
+                inputs.addStringValueInput(param.name,
+                                        param.name,
+                                        param.expression)
